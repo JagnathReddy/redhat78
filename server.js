@@ -14,6 +14,8 @@ app.use("/start",(req,res)=>{
     res.json({"status":"ok"})
 })
 
-app.listen(8080,()=>{
-    console.log("started listening at port 8000");
+let port=process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080
+
+app.listen(port,()=>{
+    console.log("started listening at port "+port);
 })
