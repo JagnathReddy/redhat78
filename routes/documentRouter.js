@@ -1,7 +1,9 @@
-import express from "express"
+const express = require("express")
+const getDocument =require("../controller/docController.js")
+
 
 const  documentRouter=express.Router();
 
-documentRouter.post(storeDocument)
+documentRouter.get("/key/:keyId",getDocument.getDocument).post("/",getDocument.storeDocument)
 
-export default documentRouter
+module.exports=documentRouter

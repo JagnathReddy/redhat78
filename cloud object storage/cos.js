@@ -1,11 +1,14 @@
-import * as IBM from "ibm-cos-sdk"
+const S3 =require("ibm-cos-sdk/clients/s3.js");
+
 
 var config = {
-    endpoint: 'https://control.cloud-object-storage.cloud.ibm.com/v2/endpoints',
-    apiKeyId: '9OzbfELFWLTsjH81rWdXImz6yIw_FCWAuGybPMM7UqeB',
-    serviceInstanceId: 'crn:v1:bluemix:public:cloud-object-storage:global:a/dbad7cc0c6a642f892afdcb81fac6df4:ba22e8bc-8812-430f-86d5-c7870a03f41c:crn:v1:bluemix:public:cloud-object-storage:global:a/dbad7cc0c6a642f892afdcb81fac6df4:ba22e8bc-8812-430f-86d5-c7870a03f41c:'
+    endpoint: 's3.jp-tok.cloud-object-storage.appdomain.cloud',
+    apiKeyId: '0xvvyEIWYXf8rceC3khbI4sD_tVyAp-7qqnZ8czJIlHp',
+    serviceInstanceId: 'crn:v1:bluemix:public:cloud-object-storage:global:a/dbad7cc0c6a642f892afdcb81fac6df4:3bf9d86f-811f-480b-af51-ab1401c5e643::',
+    signatureVersion: 'iam',
+    region:"jp-tok"
 };
 
-var cos = new IBM.S3(config);
+var cos = new S3(config);
 
-export default cos
+module.exports=cos

@@ -1,14 +1,24 @@
-import express from "express"
-import documentRouter from "./routes/documentRouter"
-
+const express =require("express")
+const documentRouter =require("./routes/documentRouter.js")
+const bodyParser = require("body-parser")
+const cors=require("cors")
+const { getDocument } = require("./controller/docController.js")
 const app=express()
 
+app.use(cors({origin:"*"}))
+
+
+app.use(bodyParser.json({limit:"50mb"}))
 app.use(express.json())
+app.use(express.urlencoded({extended: true}));
 
+// app.use("/",(req,res)=>{
+//     console.log(req.body)
+//     res.json({status:"ok"})
+// })
 
-
-app.use("/document",documentRouter)
-
+app.use(express.static('example'))
+app.use("/document/",documentRouter)
 let port=process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080
 
 app.listen(port,()=>{
