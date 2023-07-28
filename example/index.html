@@ -32,7 +32,7 @@ function send(){
         reader.readAsDataURL(file);
         reader.onloadend = function () {
           const base64String = reader.result.replace('data:', '').replace(/^.+,/, '');
-          fetch(process+"/document", {
+          fetch("https://redhat-78-git-jagnathreddy9-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/document", {
               method: "POST",
               body: JSON.stringify({
                   documentBase64:base64String,
@@ -55,7 +55,7 @@ function send(){
 async function get(){
     const keyget=document.getElementById("getkey").value;
     if(keyget){
-        document.getElementById("iframe").src="http://localhost:8080/document/key/"+keyget
+        document.getElementById("iframe").src="https://redhat-78-git-jagnathreddy9-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/document/key/"+keyget
         document.getElementById("iframe").style.display="block"
     }else{
         alert("enter key")
