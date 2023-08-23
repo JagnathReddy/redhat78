@@ -5,7 +5,7 @@ const cors=require("cors")
 const { getDocument } = require("./controller/docController.js")
 const app=express()
 
-//app.use(cors({origin:"*"}))
+app.use(cors({origin:"*"}))
 
 
 app.use(bodyParser.json({limit:"50mb"}))
